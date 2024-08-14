@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant U as Usuario
+    participant B as Navegador
+    participant S as Servidor
+
+    U->>B: Accede a /spa
+
+    B->>S: GET /spa
+    S-->>B: HTML de la SPA (single-page application)
+
+    B->>S: GET /main.css
+    S-->>B: CSS de la página
+
+    B->>S: GET /spa.js
+    S-->>B: JavaScript de la SPA
+
+    B->>S: GET /data.json
+    S-->>B: JSON con los datos de las notas
+
+    Note over B: El navegador renderiza la página con JavaScript
