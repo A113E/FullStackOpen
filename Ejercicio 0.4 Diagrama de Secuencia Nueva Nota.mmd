@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant U as Usuario
+    participant B as Navegador
+    participant S as Servidor
+
+    U->>B: Escribe nota en el campo de texto
+    U->>B: Clic en botón Save
+
+    B->>S: POST /new_note (datos de la nota)
+    S-->>B: HTTP 302 Redirección a /notes
+
+    B->>S: GET /notes
+    S-->>B: HTML de la página de Notas
+
+    B->>S: GET /main.css
+    S-->>B: CSS de la página
+
+    B->>S: GET /main.js
+    S-->>B: JavaScript de la página
+
+    B->>S: GET /data.json
+    S-->>B: JSON con los datos de las notas
