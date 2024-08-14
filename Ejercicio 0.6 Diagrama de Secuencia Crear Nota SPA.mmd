@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant U as Usuario
+    participant B as Navegador
+    participant S as Servidor
+
+    U->>B: Escribe nota en el campo de texto
+    U->>B: Clic en botón Save
+
+    Note over B: JavaScript captura los datos del formulario
+
+    B->>S: POST /new_note_spa (datos JSON: content, date)
+    S-->>B: HTTP 201 Created (respuesta sin redirección)
+
+    Note over B: JavaScript actualiza la interfaz de usuario sin recargar la página
